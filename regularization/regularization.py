@@ -17,9 +17,9 @@ y_train = tf.cast(y_train, tf.float32)
 
 train_db = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(32)
 
-w1 = tf.Variable(tf.random.normal(shape=[2, 11], dtype=tf.float32, seed=116))
+w1 = tf.Variable(tf.random.normal(shape=[2, 11], dtype=tf.float32, seed=111))
 b1 = tf.Variable(tf.constant(0.01, shape=[11]))
-w2 = tf.Variable(tf.random.normal(shape=[11, 1], dtype=tf.float32, seed=116))
+w2 = tf.Variable(tf.random.normal(shape=[11, 1], dtype=tf.float32, seed=111))
 b2 = tf.Variable(tf.constant(0.01, shape=[1]))
 
 lr = 0.2
@@ -33,10 +33,10 @@ for epoch in range(epoch):
             y = tf.matmul(h1, w2) + b2
             loss = tf.reduce_mean(tf.square(y_train - y))
 
-            # 添加L2正则化
-            loss_regular = [tf.nn.l2_loss(w1), tf.nn.l2_loss(w2)]
-            loss_regular = tf.reduce_sum(loss_regular)
-            loss = loss + 0.03 * loss_regular
+            # # 添加L2正则化
+            # loss_regular = [tf.nn.l2_loss(w1), tf.nn.l2_loss(w2)]
+            # loss_regular = tf.reduce_sum(loss_regular)
+            # loss = loss + 0.03 * loss_regular
 
         grads = tape.gradient(loss, [w1, b1, w2, b2])
 
