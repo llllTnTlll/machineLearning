@@ -1,6 +1,9 @@
-import tensorflow as tf
+import keras.regularizers
+from tensorflow.keras import Model
+from tensorflow.keras.layers import Dense
 from sklearn import datasets
 import numpy as np
+import tensorflow as tf
 
 x_train = datasets.load_iris().data
 y_train = datasets.load_iris().target
@@ -10,10 +13,18 @@ np.random.shuffle(x_train)
 np.random.seed(116)
 np.random.shuffle(y_train)
 
-model = tf.keras.models.Sequential([
-    tf.keras.layers.Dense(3, activation='softmax', kernel_regularizer=tf.keras.regularizers.l2())
-])
 
+class IrisModel(Model):
+    def __init__(self):
+        super(IrisModel, self).__init__()
+        self.d1 = Dense(3, activation='sigmoid', kernel_regularizer=tf.keras.regularizers.l2())
+
+    def call(self, x):
+        y = self.d1(x)
+        return y
+
+
+model = IrisModel()
 model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.1),
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
               metrics=['sparse_categorical_accuracy'])
