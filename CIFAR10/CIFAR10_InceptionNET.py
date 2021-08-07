@@ -4,6 +4,7 @@ from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, MaxP
 import os
 from matplotlib import pyplot as plt
 
+
 class ConvBNRelu(Model):
     def __init__(self, ch, kernalsz, stride, padding='same'):
         super(ConvBNRelu, self).__init__()
@@ -16,6 +17,7 @@ class ConvBNRelu(Model):
     def call(self, inputs, training=None, mask=None):
         x = self.model(inputs)
         return x
+
 
 class InceptionBlk(Model):
     def __init__(self, ch, strides=1):

@@ -1,4 +1,3 @@
-import keras.regularizers
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Dense
 from sklearn import datasets
