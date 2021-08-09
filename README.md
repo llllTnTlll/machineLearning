@@ -1,5 +1,22 @@
 # 我的机器学习代码笔记
 Hello World
 ## 目录
-+ Iris鸢尾花单层前馈神经网络
-+ 使用正则化减少过拟合
+### Checkpoint
++ 使用MNIST为例进行断点续训
+### CIFAR10
++ 使用卷积神经网络解决十分类问题
++ **InceptionNET** 在 CIFAR10上的应用
+### Iris
++ 鸢尾花分类的基础实现
+### Keras
++ 使用keras实现鸢尾花分类
++ 用class的形式实现鸢尾花分类
+### MNIST
++ MNIST手写数字识别
++ Fasion衣物识别
+### Regularization
++ 引入正则化解决过拟合
+### RNN
++ 使用RNN进行1pre1字母预测
++ 使用RNN进行4pre1字母预测
++ LSTM股票价格预测
